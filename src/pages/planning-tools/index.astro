@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+const all = await getCollection('articles', ({ data }) => data.pillar === 'planning-tools');
+const sorted = all.sort((a, b) => b.data.lastUpdated.localeCompare(a.data.lastUpdated));
+---
+<Base title="Planning tools | One Less Thing" description="Special Needs Trusts, letters of intent, and long-term financial planning — the tools families rely on.">
+  <div class="page-header"><div class="container--narrow">
+    <span class="pillar-chip" style="background:#FEF3C7;color:#92400E">Planning tools</span>
+    <h1>Plan for the future with confidence.</h1>
+    <p class="lead">Special Needs Trusts, letters of intent, and long-term financial planning — the tools families rely on.</p>
+  </div></div>
+  <div class="container articles-body">
+    {sorted.length === 0
+      ? <p class="empty">Guides coming soon — <a href="/newsletter">get notified</a>.</p>
+      : <div class="grid">{sorted.map(a => <ArticleCard title={a.data.title} summary={a.data.summary} pillar={a.data.pillar} tier={a.data.tier} slug={a.slug} lastUpdated={a.data.lastUpdated} state={a.data.state} />)}</div>
+    }
+  </div>
+</Base>
+<style>
+.page-header{background:var(--color-surface);border-bottom:1px solid var(--color-border);padding:2.5rem 0 2rem}
+.pillar-chip{display:inline-block;font-size:.75rem;font-weight:500;padding:3px 8px;border-radius:4px;margin-bottom:1rem}
+.page-header h1{margin-bottom:.75rem}.lead{font-size:1.0625rem;color:var(--color-body);line-height:1.7}
+.articles-body{padding:2rem 0 4rem}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.empty{color:var(--color-muted);padding:2rem 0}
+</style>

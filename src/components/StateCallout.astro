@@ -1,0 +1,45 @@
+---
+interface Props {
+  body?: string;
+  stateUrl?: string;
+}
+const {
+  body = 'Rules vary by state. The information above reflects federal law or the federal baseline. For your state\'s specific rules, check your state\'s ABLE plan, Medicaid program, or the ABLE National Resource Center\'s state comparison tool.',
+  stateUrl = 'https://www.ablenrc.org/select-a-state/',
+} = Astro.props;
+---
+
+<aside class="state-callout" role="note" aria-label="State variation note">
+  <p class="state-callout-label">This varies by state</p>
+  <p class="state-callout-body">
+    {body}
+    {stateUrl && (
+      <a href={stateUrl} target="_blank" rel="noopener noreferrer">
+        Find your state's details →
+      </a>
+    )}
+  </p>
+</aside>
+
+<style>
+  .state-callout {
+    background: var(--color-teal-wash);
+    border-left: 3px solid var(--color-teal);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .state-callout-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-teal-action);
+    margin-bottom: 0.35rem;
+  }
+  .state-callout-body {
+    font-size: 0.9rem;
+    color: var(--color-body);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .state-callout-body a { color: var(--color-teal-action); }
+</style>

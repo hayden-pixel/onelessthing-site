@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Newsletter | One Less Thing"
+  description="A weekly newsletter on disability benefits, ABLE accounts, and financial planning. Plain language. Free."
+>
+  <div class="page-header">
+    <div class="container--narrow">
+      <h1>Get clarity in your inbox.</h1>
+      <p class="lead">
+        Every week: one topic, explained plainly. ABLE accounts, SSI rules, benefit cliffs,
+        planning strategies — the financial landscape for people with disabilities and their families.
+      </p>
+    </div>
+  </div>
+
+  <div class="container--narrow page-body">
+
+    <div class="signup-block">
+      <!-- Replace with your Beehiiv embed URL -->
+      <iframe
+        src="https://embeds.beehiiv.com/REPLACE_WITH_YOUR_BEEHIIV_EMBED_ID"
+        data-test-id="beehiiv-embed"
+        width="100%"
+        height="52"
+        frameborder="0"
+        scrolling="no"
+        style="border-radius:4px;overflow:hidden;"
+        title="Newsletter signup form"
+      ></iframe>
+      <p class="signup-note">Free. Unsubscribe anytime. No spam, ever.</p>
+    </div>
+
+    <section aria-labelledby="expect-heading">
+      <h2 id="expect-heading">What to expect</h2>
+      <ul>
+        <li>One topic per issue — no noise, no padding</li>
+        <li>Plain language — written for real people, not policy wonks</li>
+        <li>Links to the full guide on the site when you want to go deeper</li>
+        <li>Occasional announcements when we publish a new tool or resource</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="who-heading">
+      <h2 id="who-heading">Who it's for</h2>
+      <p>
+        Adults with disabilities managing their own finances. Parents and caregivers planning
+        for a child's future. Social workers, special needs financial planners, and disability
+        advocates who want to stay current. Anyone who has ever Googled "can I save money on SSI"
+        and gotten a confusing answer.
+      </p>
+    </section>
+
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 3rem 0 2.5rem;
+  }
+  .page-header h1 { margin-bottom: 1rem; }
+  .lead { font-size: 1.125rem; line-height: 1.7; color: var(--color-body); }
+  .page-body { padding: 3rem 1.5rem; }
+  .signup-block {
+    background: var(--color-teal-bg);
+    border: 1px solid var(--color-teal-wash);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .signup-note { font-size: 0.8125rem; color: var(--color-muted); margin-top: 0.75rem; }
+  .page-body section { margin-bottom: 2rem; }
+  .page-body h2 { margin-bottom: 0.75rem; }
+  .page-body ul { padding-left: 1.25rem; }
+  .page-body li { margin-bottom: 0.4rem; font-size: 0.9375rem; }
+</style>

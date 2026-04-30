@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+---
+
+<Base
+  title="About | One Less Thing"
+  description="One Less Thing was started by Hayden, whose sibling has an intellectual disability. This is the resource we wish had existed."
+>
+
+  <div class="page-header">
+    <div class="container--narrow">
+      <h1>Built from the inside.</h1>
+      <p class="lead">
+        One Less Thing exists because navigating disability finances is genuinely hard —
+        and someone who has lived it should be making the guide.
+      </p>
+    </div>
+  </div>
+
+  <div class="container--narrow page-body">
+
+    <section aria-labelledby="story-heading">
+      <h2 id="story-heading">The story</h2>
+      <p>
+        My sibling has an intellectual disability. Growing up, I watched my family navigate
+        a system that was complicated by design — SSI asset limits that punished saving,
+        benefit cliffs that made working dangerous, ABLE accounts that few people knew existed,
+        and trust law that required a lawyer just to understand the questions.
+      </p>
+      <p>
+        No single resource pulled it all together in plain language. The government websites
+        were dense. The financial planning community was expensive and hard to find.
+        The nonprofit resources were helpful but scattered.
+      </p>
+      <p>
+        One Less Thing is the resource I wish had existed. It's written for the person
+        who is new to all of this and needs a starting point — and for the family member
+        who has been doing this for years and still has unanswered questions.
+      </p>
+    </section>
+
+    <section aria-labelledby="mission-heading">
+      <h2 id="mission-heading">What we do</h2>
+      <p>
+        We publish free, plain-language guides to disability financial planning.
+        Every article is written to be accurate, accessible, and genuinely useful —
+        not a teaser for a product, not a lead magnet for a sales call.
+      </p>
+      <p>
+        Our four content pillars — ABLE accounts, benefits navigation, planning tools,
+        and everyday money — cover the financial landscape for people with disabilities
+        and the families and professionals who support them.
+      </p>
+    </section>
+
+    <section aria-labelledby="promise-heading">
+      <h2 id="promise-heading">What we are not</h2>
+      <p>
+        We are not a law firm, a financial advisory, or a government agency.
+        Our content is educational — it explains what the rules say, not what you should do
+        in your specific situation. Every page includes a disclaimer for that reason,
+        and we mean it.
+      </p>
+      <p>
+        We are not a charity. Disabled people and their families don't need pity —
+        they need accurate information, presented with respect.
+      </p>
+    </section>
+
+    <section aria-labelledby="accessibility-heading">
+      <h2 id="accessibility-heading">Our accessibility commitment</h2>
+      <p>
+        We are committed to WCAG 2.2 Level AA accessibility on all pages.
+        This site is tested with automated tools and manual screen reader passes.
+        If you encounter an accessibility barrier, please contact us at
+        <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a> — we take every report seriously.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Get in touch</h2>
+      <p>
+        Questions, corrections, partnership inquiries, or just a note —
+        reach Hayden at <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a>.
+      </p>
+    </section>
+
+    <NewsletterSignup
+      heading="Stay in the loop"
+      subhead="Weekly guides on disability benefits and financial planning. Free, plain-language, no spam."
+    />
+
+  </div>
+
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 3rem 0 2.5rem;
+  }
+  .page-header h1 { margin-bottom: 1rem; }
+  .lead { font-size: 1.125rem; line-height: 1.7; color: var(--color-body); }
+  .page-body { padding: 3rem 1.5rem; }
+  .page-body section { margin-bottom: 2.5rem; }
+  .page-body h2 { margin-bottom: 1rem; }
+  .page-body p { margin-bottom: 1rem; }
+</style>

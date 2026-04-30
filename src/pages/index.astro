@@ -1,0 +1,226 @@
+---
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles');
+const featured = allArticles
+  .filter(a => a.data.featured)
+  .slice(0, 3);
+const recent = allArticles
+  .sort((a, b) => b.data.lastUpdated.localeCompare(a.data.lastUpdated))
+  .slice(0, 3);
+const displayArticles = featured.length >= 3 ? featured : recent;
+
+const pillars = [
+  {
+    slug: 'able-accounts',
+    label: 'ABLE accounts',
+    description: 'Save money without losing your benefits. Everything you need to know about ABLE accounts.',
+    color: '#0F766E',
+    bg: '#CCFBF1',
+  },
+  {
+    slug: 'benefits',
+    label: 'Benefits navigation',
+    description: 'SSI, SSDI, Medicaid, and the benefit cliff — explained in plain language.',
+    color: '#1A2B3C',
+    bg: '#EEF2F7',
+  },
+  {
+    slug: 'planning-tools',
+    label: 'Planning tools',
+    description: 'Special Needs Trusts, letters of intent, and long-term financial planning for families.',
+    color: '#92400E',
+    bg: '#FEF3C7',
+  },
+  {
+    slug: 'everyday-money',
+    label: 'Everyday money',
+    description: 'Budgeting, banking, and building financial stability on a fixed or variable income.',
+    color: '#7E22CE',
+    bg: '#FDF4FF',
+  },
+];
+---
+
+<Base
+  title="One Less Thing — Disability Financial Literacy"
+  description="Plain-language guides to ABLE accounts, SSI, SSDI, Special Needs Trusts, and everyday money management for people with disabilities and the families who support them."
+>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>One less thing<br>to worry about.</h1>
+        <p class="hero-sub">
+          Plain-language guides to ABLE accounts, disability benefits, Special Needs Trusts,
+          and everyday money management — for people with disabilities and the families who love them.
+        </p>
+        <div class="hero-actions">
+          <a href="/newsletter" class="btn btn--primary">Get the weekly newsletter</a>
+          <a href="/articles" class="btn btn--outline">Browse all articles</a>
+        </div>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <span class="badge-number">Free.</span>
+        <span class="badge-label">No jargon.<br>No advice.<br>Just clarity.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="pillars" aria-labelledby="pillars-heading">
+    <div class="container">
+      <h2 id="pillars-heading" class="section-heading">What we cover</h2>
+      <div class="pillars-grid">
+        {pillars.map(({ slug, label, description, color, bg }) => (
+          <a href={`/${slug}`} class="pillar-card" style={`--c:${color};--bg:${bg}`}>
+            <span class="pillar-label">{label}</span>
+            <p class="pillar-desc">{description}</p>
+            <span class="pillar-link" aria-hidden="true">Explore →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  {displayArticles.length > 0 && (
+    <section class="articles-section" aria-labelledby="articles-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="articles-heading" class="section-heading">Latest guides</h2>
+          <a href="/articles" class="section-link">All articles →</a>
+        </div>
+        <div class="articles-grid">
+          {displayArticles.map(article => (
+            <ArticleCard
+              title={article.data.title}
+              summary={article.data.summary}
+              pillar={article.data.pillar}
+              tier={article.data.tier}
+              slug={article.slug}
+              lastUpdated={article.data.lastUpdated}
+              state={article.data.state}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- About teaser -->
+  <section class="about-teaser" aria-labelledby="about-heading">
+    <div class="container about-inner">
+      <div class="about-text">
+        <h2 id="about-heading">Built from the inside.</h2>
+        <p>
+          I started One Less Thing because my sibling has an intellectual disability —
+          and I've seen firsthand how confusing, fragmented, and anxiety-inducing
+          the financial side of disability can be.
+        </p>
+        <p>
+          This is the resource I wish had existed. No sales pitch. No upsell.
+          Just the information families like mine actually need.
+        </p>
+        <a href="/about" class="btn btn--outline">Our story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <div class="container--narrow" style="padding-bottom:4rem">
+    <NewsletterSignup />
+  </div>
+
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(to bottom, var(--color-surface), var(--color-teal-bg));
+    border-bottom: 1px solid var(--color-border);
+    padding: 4rem 0 3.5rem;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  .hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.03em;
+  }
+  .hero-sub {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-body);
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-badge {
+    background: var(--color-teal-wash);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    min-width: 140px;
+  }
+  .badge-number { display: block; font-size: 2rem; font-weight: 500; color: var(--color-teal-action); line-height: 1; }
+  .badge-label { display: block; font-size: 0.875rem; color: var(--color-body); margin-top: 0.5rem; line-height: 1.5; }
+
+  /* Pillars */
+  .pillars { padding: 3.5rem 0; }
+  .section-heading { font-size: 1.5rem; margin-bottom: 1.5rem; }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .pillar-card {
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.15s;
+  }
+  .pillar-card:hover { transform: translateY(-2px); }
+  .pillar-label { font-size: 1rem; font-weight: 500; color: var(--c); }
+  .pillar-desc { font-size: 0.875rem; color: var(--color-body); line-height: 1.6; flex: 1; margin: 0; }
+  .pillar-link { font-size: 0.875rem; font-weight: 500; color: var(--c); }
+
+  /* Articles */
+  .articles-section {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 3.5rem 0;
+  }
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
+  .section-link { font-size: 0.875rem; color: var(--color-teal-action); text-decoration: none; }
+  .section-link:hover { text-decoration: underline; }
+  .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+
+  /* About teaser */
+  .about-teaser { padding: 3.5rem 0; }
+  .about-inner { max-width: 640px; }
+  .about-text h2 { margin-bottom: 1rem; }
+  .about-text p { margin-bottom: 1rem; }
+  .about-text .btn { margin-top: 0.5rem; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 2.5rem 0; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-badge { display: none; }
+    .hero-text h1 { font-size: 2.25rem; }
+  }
+</style>

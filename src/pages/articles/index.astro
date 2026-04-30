@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles');
+const sorted = allArticles.sort((a, b) => b.data.lastUpdated.localeCompare(a.data.lastUpdated));
+
+const pillars = ['able-accounts', 'benefits', 'planning-tools', 'everyday-money'];
+const pillarLabels: Record<string, string> = {
+  'able-accounts':  'ABLE accounts',
+  'benefits':       'Benefits',
+  'planning-tools': 'Planning tools',
+  'everyday-money': 'Everyday money',
+};
+---
+
+<Base
+  title="All Articles | One Less Thing"
+  description="Plain-language guides to ABLE accounts, SSI, SSDI, Special Needs Trusts, and disability financial planning."
+>
+  <div class="page-header">
+    <div class="container">
+      <h1>All articles</h1>
+      <p class="lead">Plain-language guides to disability benefits, ABLE accounts, and financial planning.</p>
+      <nav class="filter-nav" aria-label="Filter by topic">
+        <a href="/articles" class="filter-btn filter-btn--active">All</a>
+        {pillars.map(p => (
+          <a href={`/${p}`} class="filter-btn">{pillarLabels[p]}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <div class="container articles-body">
+    {sorted.length === 0 ? (
+      <p class="empty-state">Articles coming soon — <a href="/newsletter">sign up for the newsletter</a> to be notified.</p>
+    ) : (
+      <div class="articles-grid">
+        {sorted.map(article => (
+          <ArticleCard
+            title={article.data.title}
+            summary={article.data.summary}
+            pillar={article.data.pillar}
+            tier={article.data.tier}
+            slug={article.slug}
+            lastUpdated={article.data.lastUpdated}
+            state={article.data.state}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 2.5rem 0 0;
+  }
+  .page-header h1 { margin-bottom: 0.5rem; }
+  .lead { font-size: 1rem; color: var(--color-body); margin-bottom: 1.5rem; }
+  .filter-nav { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 1.25rem; }
+  .filter-btn {
+    font-size: 0.875rem;
+    padding: 5px 12px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: all 0.1s;
+  }
+  .filter-btn:hover { border-color: var(--color-teal); color: var(--color-teal-action); }
+  .filter-btn--active { background: var(--color-teal-action); color: #fff; border-color: var(--color-teal-action); }
+  .articles-body { padding: 2rem 0 4rem; }
+  .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .empty-state { color: var(--color-muted); font-size: 1rem; padding: 2rem 0; }
+</style>

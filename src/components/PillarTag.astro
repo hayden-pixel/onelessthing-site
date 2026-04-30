@@ -1,0 +1,28 @@
+---
+interface Props {
+  pillar: string;
+}
+const { pillar } = Astro.props;
+
+const pillars: Record<string, { label: string; bg: string; color: string }> = {
+  'able-accounts':   { label: 'ABLE accounts',   bg: '#CCFBF1', color: '#0F766E' },
+  'benefits':        { label: 'Benefits',         bg: '#EEF2F7', color: '#1A2B3C' },
+  'planning-tools':  { label: 'Planning tools',   bg: '#FEF3C7', color: '#92400E' },
+  'everyday-money':  { label: 'Everyday money',   bg: '#FDF4FF', color: '#7E22CE' },
+};
+
+const { label, bg, color } = pillars[pillar] ?? { label: pillar, bg: '#F1F5F9', color: '#475569' };
+---
+
+<span class="pillar-tag" style={`background:${bg};color:${color}`}>{label}</span>
+
+<style>
+  .pillar-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+</style>

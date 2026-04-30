@@ -1,0 +1,87 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="wm-plain">One </span><span class="wm-teal">Less</span><span class="wm-plain"> Thing</span>
+      <p class="footer-tagline">Disability financial literacy, plain and simple.</p>
+    </div>
+
+    <nav aria-label="Footer navigation" class="footer-nav">
+      <div class="footer-col">
+        <p class="footer-col-label">Learn</p>
+        <ul role="list">
+          <li><a href="/able-accounts">ABLE accounts</a></li>
+          <li><a href="/benefits">Benefits navigation</a></li>
+          <li><a href="/planning-tools">Planning tools</a></li>
+          <li><a href="/everyday-money">Everyday money</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Company</p>
+        <ul role="list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
+          <li><a href="/articles">All articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Legal</p>
+        <ul role="list">
+          <li><a href="/accessibility">Accessibility</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/terms">Terms of use</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="disclaimer-text">
+        This content is for educational purposes only and does not constitute legal, tax, or financial advice.
+        Consult a qualified professional for your specific situation.
+      </p>
+      <p class="copyright">© {year} One Less Thing Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy);
+    color: #94a3b8;
+    margin-top: 4rem;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    align-items: start;
+  }
+  .footer-brand .wm-plain { color: #fff; font-size: 1.125rem; font-weight: 500; letter-spacing: -0.02em; }
+  .footer-brand .wm-teal  { color: var(--color-teal-light); font-size: 1.125rem; font-weight: 500; letter-spacing: -0.02em; }
+  .footer-tagline { font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; }
+  .footer-nav { display: flex; gap: 3rem; }
+  .footer-col-label { font-size: 0.75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #64748b; margin-bottom: 0.75rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col a { font-size: 0.875rem; color: #94a3b8; text-decoration: none; transition: color 0.1s; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid #1e3347;
+    padding: 1.25rem 0;
+  }
+  .footer-bottom .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .disclaimer-text { font-size: 0.75rem; color: #4b5563; max-width: 560px; line-height: 1.5; }
+  .copyright { font-size: 0.75rem; color: #4b5563; flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-nav { flex-direction: column; gap: 1.5rem; }
+    .footer-bottom .container { flex-direction: column; align-items: flex-start; }
+  }
+</style>
