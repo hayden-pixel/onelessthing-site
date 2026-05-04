@@ -24,7 +24,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm install
-      - run: npx astro build
+      - run: chmod +x ./node_modules/.bin/astro && node ./node_modules/astro/dist/cli/index.js build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
