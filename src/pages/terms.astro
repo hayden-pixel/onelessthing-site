@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Terms of Use | One Less Thing"
+  description="Terms of use for onelessthing.us. Free educational content, no financial advice, plain language."
+>
+
+  <div class="page-header">
+    <div class="container--narrow">
+      <h1>Terms of use</h1>
+      <p class="lead">
+        Plain language. No tricks. Here's what you're agreeing to by using this site.
+      </p>
+    </div>
+  </div>
+
+  <div class="container--narrow page-body">
+
+    <p class="meta">Last updated: May 6, 2026 &middot; Questions? <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a></p>
+
+    <section aria-labelledby="acceptance-heading">
+      <h2 id="acceptance-heading">Using this site</h2>
+      <p>
+        By using onelessthing.us, you agree to these terms. If you don't agree, please
+        don't use the site. We may update these terms over time — the "last updated"
+        date above reflects the most recent revision. Continued use of the site means
+        you accept any changes.
+      </p>
+    </section>
+
+    <section aria-labelledby="content-heading">
+      <h2 id="content-heading">What this site is</h2>
+      <p>
+        One Less Thing publishes free, plain-language educational content about disability
+        financial planning — ABLE accounts, SSI (Supplemental Security Income), Medicaid,
+        Special Needs Trusts, and related topics.
+      </p>
+      <p>
+        <strong>This is educational content, not professional advice.</strong> Nothing on
+        this site is legal advice, financial advice, or tax advice. Every situation is
+        different, and the information here may not apply to yours. Always consult a
+        qualified attorney, financial planner, or tax professional for decisions that
+        affect your specific circumstances.
+      </p>
+      <p>
+        Benefit rules — especially SSI, Medicaid, and ABLE account rules — change frequently
+        and vary by state. We do our best to keep content current, but we cannot guarantee
+        that every detail is up to date at the moment you read it. Verify important figures
+        with official sources (Social Security Administration, your state's ABLE plan, etc.)
+        before making decisions.
+      </p>
+    </section>
+
+    <section aria-labelledby="ip-heading">
+      <h2 id="ip-heading">Content ownership</h2>
+      <p>
+        All content on this site — articles, guides, graphics, and other materials —
+        is owned by One Less Thing Inc. unless otherwise noted. You may share links to
+        our content freely. You may quote short excerpts with proper attribution.
+        You may not reproduce full articles or republish our content without written
+        permission.
+      </p>
+      <p>
+        If you'd like to reprint or adapt something for a nonprofit, advocacy organization,
+        or educational context, just ask — we're usually happy to work something out.
+        Email <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="conduct-heading">
+      <h2 id="conduct-heading">How to use this site</h2>
+      <p>This site is for personal, non-commercial use. You may not:</p>
+      <ul>
+        <li>Scrape, crawl, or copy our content at scale for AI training or data resale.</li>
+        <li>Use this site in a way that could damage, disable, or overburden our servers.</li>
+        <li>Attempt to access any part of the site you're not authorized to access.</li>
+        <li>Use our content in a way that misrepresents us or our positions.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Links to other sites</h2>
+      <p>
+        We link to external sites — government agencies, nonprofit resources, other
+        educational content — when they're useful. We don't control those sites and
+        aren't responsible for their content or privacy practices. A link from us is
+        not an endorsement.
+      </p>
+    </section>
+
+    <section aria-labelledby="liability-heading">
+      <h2 id="liability-heading">Limitation of liability</h2>
+      <p>
+        One Less Thing Inc. provides this site and its content "as is." We make no
+        warranties — express or implied — about the accuracy, completeness, or fitness
+        for a particular purpose of any content here. To the fullest extent permitted
+        by law, we are not liable for any damages arising from your use of this site
+        or reliance on its content.
+      </p>
+      <p>
+        This doesn't mean we're cavalier about accuracy — we care deeply about getting
+        things right. It means we're a small company and cannot be responsible for
+        decisions made based on educational content.
+      </p>
+    </section>
+
+    <section aria-labelledby="governing-heading">
+      <h2 id="governing-heading">Governing law</h2>
+      <p>
+        These terms are governed by the laws of the State of Nebraska, without regard
+        to conflict of law principles. Any disputes will be resolved in Nebraska courts.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>
+        Questions? <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a>.
+        We're a small team and will respond personally.
+      </p>
+    </section>
+
+    <div class="disclaimer" role="note">
+      <p>
+        <em>This content is for educational purposes only and does not constitute legal, tax,
+        or financial advice. Consult a qualified professional for your specific situation.</em>
+      </p>
+    </div>
+
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 3rem 0 2.5rem;
+  }
+  .page-header h1 { margin-bottom: 1rem; }
+  .lead { font-size: 1.125rem; line-height: 1.7; color: var(--color-body); }
+  .page-body { padding: 3rem 1.5rem; }
+  .meta { font-size: 0.875rem; color: var(--color-muted); margin-bottom: 2.5rem; }
+  .page-body section { margin-bottom: 2.5rem; }
+  .page-body h2 { margin-bottom: 0.75rem; }
+  .page-body ul { padding-left: 1.25rem; }
+  .page-body li { margin-bottom: 0.6rem; line-height: 1.6; }
+  .page-body p { margin-bottom: 1rem; line-height: 1.7; }
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .disclaimer p { margin: 0; font-size: 0.875rem; color: var(--color-muted); }
+</style>

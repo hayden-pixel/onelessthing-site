@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Accessibility | One Less Thing"
+  description="One Less Thing is committed to WCAG 2.2 AA accessibility. Learn about our standards, known issues, and how to reach us if something isn't working."
+>
+
+  <div class="page-header">
+    <div class="container--narrow">
+      <h1>Accessibility statement</h1>
+      <p class="lead">
+        We build this site for everyone — including disabled people who depend on
+        accessible technology every day. Here's what we've done, what we're working on,
+        and how to tell us when something isn't working.
+      </p>
+    </div>
+  </div>
+
+  <div class="container--narrow page-body">
+
+    <section aria-labelledby="commitment-heading">
+      <h2 id="commitment-heading">Our commitment</h2>
+      <p>
+        One Less Thing is committed to meeting the Web Content Accessibility Guidelines (WCAG) 2.2,
+        Level AA. These guidelines define how to make web content accessible to people with
+        disabilities — including visual, auditory, motor, cognitive, and speech disabilities.
+      </p>
+      <p>
+        Accessibility is not a feature we bolt on at the end. It's a baseline requirement
+        for every page we publish. A financial literacy resource that isn't accessible to
+        disabled people has failed its core audience.
+      </p>
+    </section>
+
+    <section aria-labelledby="measures-heading">
+      <h2 id="measures-heading">What we've done</h2>
+      <ul>
+        <li>Structured all pages with proper heading hierarchy (H1 → H2 → H3) so screen readers can navigate by heading.</li>
+        <li>Added a skip-to-main-content link at the top of every page so keyboard users can bypass navigation.</li>
+        <li>Written descriptive alt text for all meaningful images. Decorative images are marked with empty alt attributes.</li>
+        <li>Maintained color contrast ratios that meet or exceed WCAG 2.2 AA (4.5:1 for normal text, 3:1 for large text).</li>
+        <li>Ensured all interactive elements are keyboard-navigable and have visible focus indicators.</li>
+        <li>Used semantic HTML elements (<code>nav</code>, <code>main</code>, <code>article</code>, <code>section</code>) rather than generic divs wherever structure matters.</li>
+        <li>Set the page language (<code>lang="en"</code>) on every page so screen readers use the correct pronunciation.</li>
+        <li>Tested layouts on a range of viewport sizes so content is readable without horizontal scrolling at 320px width.</li>
+        <li>Avoided content that flashes more than 3 times per second.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="known-heading">
+      <h2 id="known-heading">Known limitations</h2>
+      <p>
+        We are a small team, and we may not have caught everything. Issues we are aware of:
+      </p>
+      <ul>
+        <li>
+          <strong>Newsletter embed:</strong> The Beehiiv signup form on the Newsletter page
+          is a third-party embed. We do not control its accessibility. If the embed does not
+          work for you, please <a href="/newsletter">email us directly</a> and we will add
+          you to the list manually.
+        </li>
+      </ul>
+      <p>
+        If you encounter a barrier we haven't listed here, please tell us — we want to fix it.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact us</h2>
+      <p>
+        If you experience an accessibility barrier on this site, we want to know.
+        Please reach out at <a href="mailto:hayden@onelessthing.us">hayden@onelessthing.us</a>
+        with a description of the issue and the page where you found it.
+        We will respond within 2 business days.
+      </p>
+      <p>
+        If we are unable to resolve your issue, we can help you find the information
+        you need in an alternative format.
+      </p>
+    </section>
+
+    <section aria-labelledby="standards-heading">
+      <h2 id="standards-heading">Technical standards</h2>
+      <p>
+        This site conforms to WCAG 2.2 Level AA. Content is built using HTML5 and Astro.
+        We test with keyboard-only navigation and use automated tools to check for common issues.
+        We do not use any overlays or third-party accessibility plugins — these are not
+        a substitute for building accessibly from the start.
+      </p>
+    </section>
+
+    <section aria-labelledby="updated-heading">
+      <h2 id="updated-heading">Statement date</h2>
+      <p>This accessibility statement was last reviewed on May 6, 2026.</p>
+    </section>
+
+    <div class="disclaimer" role="note">
+      <p>
+        <em>This content is for educational purposes only and does not constitute legal, tax,
+        or financial advice. Consult a qualified professional for your specific situation.</em>
+      </p>
+    </div>
+
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 3rem 0 2.5rem;
+  }
+  .page-header h1 { margin-bottom: 1rem; }
+  .lead { font-size: 1.125rem; line-height: 1.7; color: var(--color-body); }
+  .page-body { padding: 3rem 1.5rem; }
+  .page-body section { margin-bottom: 2.5rem; }
+  .page-body h2 { margin-bottom: 0.75rem; }
+  .page-body ul { padding-left: 1.25rem; }
+  .page-body li { margin-bottom: 0.6rem; line-height: 1.6; }
+  .page-body p { margin-bottom: 1rem; line-height: 1.7; }
+  code {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+    font-size: 0.875em;
+  }
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .disclaimer p { margin: 0; font-size: 0.875rem; color: var(--color-muted); }
+</style>
